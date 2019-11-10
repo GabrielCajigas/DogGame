@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dojodachi</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/style.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="col-12 text-center z-2" id="statContainer">
+            <div id="statItems">
+                <span class="lead">Fullness:
+          <span key="fullness" class="stat-value">@TempData["fullness"]</span>
+                </span>
+                <span class="lead">Happiness:
+          <span key="happiness" class="stat-value">@TempData["happiness"]</span>
+                </span>
+                <span class="lead">Meals:
+          <span key="meals" class="stat-value">@TempData["meals"]</span>
+                </span>
+                <span class="lead">Energy:
+          <span key="energy" class="stat-value">@TempData["energy"]</span>
+                </span>
+            </div>
+        </div>
+        <div class=" col-12 " id="photo">
+            <!-- <img src="https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/67025167_10220099827628860_2954330552049598464_n.jpg?_nc_cat=103&_nc_oc=AQlZmv-vnibE7p2zNS5kUz2dGfMFjnSwv5KeMSVDqRn901GZRm7d7pgibfbzGVZ66G6PnhjZViscz1V2fI7iCDwI&_nc_ht=scontent-lga3-1.xx&oh=88a4e13fe4462a8cd79024e2e9ccba59&oe=5E5EA9B8" alt=""/> -->
+            <div class="dog">
+                <div class="dog-body">
+                    <div class="dog-tail">
+                        <div class="dog-tail">
+                            <div class="dog-tail">
+                                <div class="dog-tail">
+                                    <div class="dog-tail">
+                                        <div class="dog-tail">
+                                            <div class="dog-tail">
+                                                <div class="dog-tail"></div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dog-torso"></div>
+                <div class="dog-head">
+                    <div class="dog-ears">
+                        <div class="dog-ear"></div>
+                        <div class="dog-ear"></div>
+                    </div>
+                    <div class="dog-eyes">
+                        <div class="dog-eye"></div>
+                        <div class="dog-eye"></div>
+                    </div>
+                    <div class="dog-muzzle">
+                        <div class="dog-tongue"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ball" tabindex="0"></div>
+            @{ string noMeal = TempData["NoMeal"] as string; string message = TempData["Message"] as string; string winMessage = TempData["WinMessage"] as string; string lossMessage = TempData["lossMessage"] as string; if (noMeal != null) {
+            <div class="alert alert-danger" role="alert">@noMeal</div>
+            } if (message != null && winMessage == null && lossMessage == null) {
+            <div class="alert alert-primary" role="alert">@message</div>
+            } if (winMessage != null) {
+            <div class="alert alert-success" role="alert">@winMessage</div>
+            } if (lossMessage != null) {
+            <div class="alert alert-danger" role="alert">@lossMessage</div>
+            } }
+        </div>
+        <div id="playerButtons" class="m-1 float-rigth text-center justify-content">
+            @{ string win = TempData["Win"] as string; string loss = TempData["Loss"] as string; if (win != "True" && loss != "True") {
+           <a id="F" href="Feed" class="btn btn-lg btn-success">Feed</a>
+            <a id="P" href="Play" class="btn btn-lg btn-success">Play</a>
+            <a  id="W" href="Work" class="btn btn-lg btn-success">Work</a>
+            <a  id="S" href="Sleep" class="btn btn-lg btn-success">Sleep</a> } else {
+            <a href="Restart" class="btn btn-lg btn-danger">Restart?</a> } }
+        </div>
+    </div>
+     <script>
+
+        const feed = new Audio("/show.mp3");
+        const play = new Audio("/shot.mp3");
+        const work = new Audio("/shot.mp3");
+        const sleep = new Audio("/shot.mp3");
+document.getElementById("F").addEventListener("click", e => feed.play());
+document.getElementById("P").addEventListener("click", e => play.play());
+document.getElementById("W").addEventListener("click", e => work.play());
+document.getElementById("S").addEventListener("click", e => sleep.play());
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>
